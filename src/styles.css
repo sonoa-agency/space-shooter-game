@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@import "@fontsource/tajawal/arabic-400.css";
+@import "@fontsource/tajawal/arabic-500.css";
+@import "@fontsource/tajawal/arabic-700.css";
+@import "@fontsource/tajawal/arabic-800.css";
+@import "@fontsource/tajawal/latin-400.css";
+@import "@fontsource/tajawal/latin-500.css";
+@import "@fontsource/tajawal/latin-700.css";
+@import "@fontsource/tajawal/latin-800.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "@fontsource/ibm-plex-mono/600.css";
+
+@theme {
+  --color-bg: #070b10;
+  --color-surface: #121a22;
+  --color-fg: #e8f4ef;
+  --color-muted: #8ea39a;
+  --color-ice: #3ddcb5;
+  --color-ember: #ff5a36;
+  --color-gold: #e8c36a;
+  --color-line: #2a3a48;
+  --font-sans: "Tajawal", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  body {
+    user-select: none;
+    overscroll-behavior: none;
+  }
+
+  input,
+  textarea {
+    user-select: text;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-ice) 45%, transparent);
+    color: var(--color-bg);
+  }
+}
+
+@utility safe-top {
+  top: max(0.75rem, env(safe-area-inset-top));
+}
+
+@utility safe-left {
+  left: max(0.75rem, env(safe-area-inset-left));
+}
+
+@utility safe-right {
+  right: max(0.75rem, env(safe-area-inset-right));
+}
+
+@utility safe-bottom {
+  bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+.hud-status {
+  top: max(4.75rem, calc(env(safe-area-inset-top) + 4rem));
+}
+
+.hud-regen {
+  top: max(6.6rem, calc(env(safe-area-inset-top) + 5.8rem));
+}
+
+.hud-boss {
+  top: max(7.4rem, calc(env(safe-area-inset-top) + 6.6rem));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe {
+    animation: none !important;
+    transition: none !important;
+  }
+}
